@@ -1,0 +1,23 @@
+.transaction-form .input-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.transaction-form .input-group input, .transaction-form .input-group select {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    border-radius: 8px;
+}
+.submit-btn {
+    background-color: #1e293b;
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.submit-btn:hover { background-color: #334155; }
