@@ -1,23 +1,16 @@
-# --- Python / Django ---
-__pycache__/
-*.py[cod]
-*$py.class
-venv/
-.env
-db.sqlite3
-media/
-static/
+# --- BACKEND ---
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/db.sqlite3
+backend/.env
 
-# --- React / Node ---
-node_modules/
-build/
-.pnp
-.pnp.js
-coverage/
-.ds_store
+# --- FRONTEND ---
+frontend/node_modules/
+frontend/build/
+frontend/.eslintcache
+frontend/.env
 
-# --- Environment / IDE ---
-.vscode/
-.idea/
-*.swp
-*.log
+# --- SYSTEM ---
+.DS_Store
+Thumbs.db

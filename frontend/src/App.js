@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { getSummary, getRecent } from './api';
 import Auth from './components/Auth/Auth';
 import SummaryCards from './components/Dashboard/SummaryCards/SummaryCards';
@@ -8,6 +8,9 @@ import TransactionList from './components/Dashboard/TransactionList/TransactionL
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [data, setData] = useState({ summary: null, recent: [] });
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  const userRole = user?.role;
 
   const fetchData = useCallback(() => {
     if (token) {
@@ -41,7 +44,15 @@ function App() {
           </div>
         </header>
 
-        <TransactionForm token={token} onRecordAdded={fetchData} />
+        {/* <TransactionForm token={token} onRecordAdded={fetchData} /> */}
+
+        {userRole !== 'VIEWER' ? (
+          <TransactionForm token={token} onRecordAdded={fetchData} />
+        ) : (
+          <div className="bg-blue-50 text-blue-700 p-4 rounded-2xl mb-10 font-bold text-sm text-center">
+            You are logged in as a Viewer. You can see the data but cannot add new transactions.
+          </div>
+        )}
 
         <SummaryCards summary={data.summary} />
 
